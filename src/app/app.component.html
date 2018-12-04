@@ -1,0 +1,171 @@
+<h1>
+
+    {{title}}</h1>
+<hr>
+<br>
+<br>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Variable</th>
+            <th scope="col">Pipe</th>
+            <th scope="col">Result</th>
+            <th scope="col">Observations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ name }} </td>
+            <td>lowercase</td>
+            <td>{{ name | lowercase }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ name }} </td>
+            <td>uppercase</td>
+            <td>{{ name | uppercase }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ name }} </td>
+            <td>slice:3</td>
+            <td>{{ name | slice:3 }}</td>
+            <td>cut then since the first 3 letter or characters</td>
+        </tr>
+        <tr>
+            <td>{{ name }} </td>
+            <td>slice:0:3</td>
+            <td>{{ name | slice:0:3 }}</td>
+            <td>start in position 0 and cut first 3 letter or characters</td>
+        </tr>
+        <tr>
+            <td>{{ numberList }} </td>
+            <td>slice:0:3</td>
+            <td>{{ numberList | slice:0:3 }}</td>
+            <td>start in position 0 and cut first 3 letter or characters</td>
+        </tr>
+        <tr>
+            <td>{{ PI }} </td>
+            <td>number</td>
+            <td>{{ PI | number }}</td>
+            <td>number pipe by default let you 3 decimal in original number</td>
+        </tr>
+        <tr>
+            <td>{{ PI }} </td>
+            <td>number</td>
+            <td>{{ PI | number:'3.0-3' }}</td>
+            <td>number pipe format is 3.0-3. first arg. is entire part, second is the minimun decimal shaw, third is the max decimal shaw</td>
+        </tr>
+        <tr>
+            <td>{{ perc }} </td>
+            <td>percent</td>
+            <td>{{ perc | percent }}</td>
+            <td>Normal percent format without decimal part</td>
+        </tr>
+        <tr>
+            <td>{{ perc }} </td>
+            <td>percent:'2.3'</td>
+            <td>{{ perc | percent:'2.3' }}</td>
+            <td>custom percent format with 3 decimal numbers</td>
+        </tr>
+        <tr>
+            <td>{{ internationSalary }} </td>
+            <td>currency</td>
+            <td>{{ internationSalary | currency }}</td>
+            <td>currency pipe with default parameters</td>
+        </tr>
+        <tr>
+            <td>{{ internationSalary }} </td>
+            <td>currency</td>
+            <td>{{ internationSalary | currency:'EUR' }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ internationSalary }} </td>
+            <td>currency:'EUR':true</td>
+            <td>{{ internationSalary | currency:'EUR':true }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ internationSalary }} </td>
+            <td>currency:'EUR':true:'4.0-0'</td>
+            <td>{{ internationSalary | currency:'EUR':true:'4.0-0' }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ internationSalary }} </td>
+            <td>currency:'EUR':true:'4.0-0'</td>
+            <td>{{ internationSalary | currency:'EUR':true:'4.0-0' }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ newPromise }} </td>
+            <td>Promise without async pipe</td>
+            <td>{{ newPromise}}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ newPromise }} </td>
+            <td>Promise with async pipe</td>
+            <td>{{ newPromise | async}}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ fecha }} </td>
+            <td>Date</td>
+            <td>{{ fecha | date}}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ fecha }} </td>
+            <td>Date</td>
+            <td>{{ fecha | date:'medium'}}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ fecha }} </td>
+            <td>Date</td>
+            <td>{{ fecha | date:'MMMM - Y'}}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ irregularName }} </td>
+            <td>capitalize (custom pipe)</td>
+            <td>{{ irregularName | capitalize }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ irregularName }} </td>
+            <td>capitalize (custom pipe with arguments)</td>
+            <td>{{ irregularName | capitalize:false }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ name }} </td>
+            <td>
+                psswd | (custom pipe)
+                <button (click)="activate = !activate" class="btn btn-outline-primary">
+                    password | {{ activate }}
+                </button>
+            </td>
+            <td>
+                {{ name | psswd:activate }}
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Slice with number list</h3>
+<ul>
+    <li *ngFor="let item of numberList | slice:5:20">{{item}}</li>
+</ul>
+
+<h3>JSON pipe - hero | json</h3>
+<pre>
+  {{hero | json}}
+</pre>
+
+<h2>Safe DOM</h2>
+<!--  -->
+<iframe width="560" height="315" [src]=" video | safeDom:'https://www.youtube.com/embed/'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
